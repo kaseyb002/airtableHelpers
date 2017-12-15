@@ -1,8 +1,8 @@
-#Airtable Helpers
+# Airtable Helpers
 
 A simple handy functions you can use alongside the Airtable API. Very useful if you're working with records across separate bases.
 
-#How to use
+## How to use
 ```javascript
 //get your airtable base
 var Airtable = require('airtable');
