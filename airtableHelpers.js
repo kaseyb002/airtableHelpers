@@ -23,9 +23,7 @@ var findRecords = function(base,
       console.error(err); 
       return;
     }
-
-	});
-
+  });
 };
 
 var checkIfExistsWithFormula = function(targetBase, 
@@ -59,11 +57,11 @@ var checkIfExistsWithFormula = function(targetBase,
 
 };
 
-var sendToTargetBase = function(record, 
-                                base, 
-                                tableName, 
-                                newRecordData, 
-                                callback) {
+var sendToBase = function(record, 
+                          base, 
+                          tableName, 
+                          newRecordData, 
+                          callback) {
 
   base(tableName).create(newRecordData(record), function(err, newRecord) {
       if (err) { console.error(err); return; }
@@ -73,7 +71,10 @@ var sendToTargetBase = function(record,
 
 };
 
-var createNewFromJson = function(base, tableName, json, callback) {
+var createNewFromJson = function(base, 
+                                 tableName, 
+                                 json, 
+                                 callback) {
 
   base(tableName).create(json, function(err, newRecord) {
       if (err) { 
@@ -87,7 +88,10 @@ var createNewFromJson = function(base, tableName, json, callback) {
 
 };
 
-var updateRecordWithJson = function(base, tableName, record, json) {
+var updateRecordWithJson = function(base, 
+                                    tableName, 
+                                    record, 
+                                    json) {
 
   targetBase(targetTableName).update(record.getId(), json, function(err, record) {
       if (err) { console.error(err); return; }
@@ -96,7 +100,10 @@ var updateRecordWithJson = function(base, tableName, record, json) {
 
 };
 
-var countRecords = function(base, tableName, filterFormula, callback) {
+var countRecords = function(base, 
+                            tableName, 
+                            filterFormula, 
+                            callback) {
   var count = 0;
 
   base(tableName).select({
@@ -117,7 +124,11 @@ var countRecords = function(base, tableName, filterFormula, callback) {
 
 };
 
-var sumIntField = function(base, tableName, filterFormula, intFieldName, callback) {
+var sumIntField = function(base, 
+                           tableName, 
+                           filterFormula, 
+                           intFieldName, 
+                           callback) {
   var count = 0;
 
   base(tableName).select({
@@ -147,5 +158,5 @@ module.exports.countRecords =  countRecords;
 module.exports.updateRecordWithJson = updateRecordWithJson;
 module.exports.findRecords = findRecords;
 module.exports.checkIfExistsWithFormula = checkIfExistsWithFormula;
-module.exports.sendToTargetBase = sendToTargetBase;
+module.exports.sendToBase = sendToBase;
 module.exports.createNewFromJson = createNewFromJson;
