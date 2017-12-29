@@ -1,6 +1,8 @@
 # Airtable Helpers
 
-A simple handy functions you can use alongside the Airtable API. Very useful if you're working with records across separate bases.
+Just a couple handy functions to supplement the Airtable API. 
+
+Helpful for working with records in separate bases.
 
 ## How to use
 ```javascript
@@ -19,8 +21,6 @@ airtableHelper.findRecords(base, //base to search
 	console.log("Male comment: " + record.get('Comment'));
 });
 ```
-
-
 
 
 
@@ -44,7 +44,6 @@ airtableHelper.sendToBase(record,
 						  function(newRecord) { //completion callback once record has transferred 
 	console.log(newRecord.getId() + " created in base " + maleCommentBase.getId());
 });
-
 
 ```
 
